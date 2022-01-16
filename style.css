@@ -1,0 +1,317 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+	line-height: 1;
+     font-family: 'Roboto Mono', monospace;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+     width: 100%;
+}
+
+
+main{
+     width: 80%;
+}
+
+th{
+     background-color: #FEC001;
+     height: 40px;
+     border-right: 1px solid black;
+     padding: 5px;
+}
+th:nth-last-child(2),th:nth-last-child(1){
+     border: none;
+}
+
+td{
+     text-align: center;
+     border-right: 1px solid black;
+     padding: 3px 2px 3px 2px ;
+
+}
+tbody >tr > td:nth-last-child(2),tbody >tr > td:nth-last-child(1){
+     border: none;
+}
+tr:nth-child(2n){
+     background-color: #6e6b60;
+}
+tfoot > tr > td{
+     border-top: 1px solid black;
+     border-right: none;
+}
+tfoot>tr>td{
+     padding-top:10px;
+     padding-bottom: 10px;
+     background-color: #FEC001;
+}
+input{
+     border: none;
+}
+.tableInput{
+     width:90%;
+     padding: 1px;
+     border: 1px solid black;
+}
+
+
+#redenBroj, #eMera, #kolicina{
+     width: 5%;
+}
+
+#cenaBezDDV, #danStapka, #DDV{
+     width: 15%;
+}
+
+#opis{
+     width: 25%;
+}
+#iznos{
+     width: 10%;
+}
+#btntoggle, #deleteBtn{
+     width: 5%;
+}
+
+
+
+.hide{
+     display: none;
+}
+.show{
+     display: block;
+}
+
+#info{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+}
+
+/* Buttons */
+
+.checkBtn{
+     background: center / contain no-repeat url(buttonSvg/checkBtn.svg);
+     height: 15px;
+     color: black;
+     
+}
+
+.editBtn{
+     background: center / contain no-repeat url(buttonSvg/editBtn.svg);
+     height: 15px;
+}
+
+.deleteBtn{
+     background: center / contain no-repeat url(buttonSvg/deleteBtn.svg);
+     height: 15px;
+}
+.editBtnOnInfo{
+     background: center / contain no-repeat url(buttonSvg/editBtn.svg);
+     height: 30px;
+     width: 30px;
+     display: block;
+     border: none;
+     padding: 0;
+}
+.checkBtnOnInfo{
+     background: center / contain no-repeat url(buttonSvg/checkBtn.svg);
+     height: 30px;
+     width: 30px;
+     display: block;
+     border: none;
+     padding: 0;
+}
+.editBtnOnInfo:hover,  .checkBtnOnInfo:hover{
+cursor: pointer;
+width: 35px;
+height: 35px;
+transition: 0.2s;
+}
+
+/* Header  */
+
+header{
+     width: 80%;
+     background-color: #48422D;
+
+}
+#pobaruvaDiv{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+width: 50%;
+}
+
+.pobaruvaInfoInputClass{
+     width: 100%;
+     padding: 5px 0 5px 0;
+     margin: 2px 0px 2px 0px;  
+     font-family: 'Roboto Mono', monospace; 
+     color: white
+}
+.pobaruvaInfoInputClass:enabled{
+     background-color: #6e6b60;
+}
+.pobaruvaInfoInputClass::placeholder{
+     color: rgb(255, 255, 255);
+}
+.pobaruvaInfoInputClass:disabled{
+     background-color: #48422D;
+}
+
+
+#telEmailDiv{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     width: 100%;
+     margin-left: 5px;
+}
+
+#pobaruvaInputEmail{
+     width: 63%;
+     font-size: 0.6em
+}
+#pobaruvaInputPhone{
+width: 35%;
+font-size: 0.6em
+}
+#pobaruvaInputAddress{
+     margin-left: 5px;
+     font-size: 0.7em;
+}
+#pobaruvaInputName{
+     margin-left: 5px;
+     font-size: 1.2em;
+     font-weight: 700;
+}
+
+/* Client INFO  */
+
+#klientDiv{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     padding: 30px 5px 30px 5px;
+}
+
+#klientInfo{
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+}
+h3{
+     font-weight: 400;
+     font-size: 0.7em;
+}
+.klientInfoInputClass{
+     background-color: silver;
+     margin: 5px 0px 5px 0px;
+     color: black;
+}
+.klientInfoInputClass:disabled{
+     background-color: white;
+}
+
+#klientInputName{
+     font-weight: 700;
+     font-size: 1.3em;
+}
+
+#klientPaymentInfo{
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+     justify-content: space-between;
+}
+.infoBtnDiv{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 40px;
+     width: 40px;
+}
+
+#brNaFaktura{
+     text-align: end;
+}
+#kraenRok{
+     text-align: end;
+}
+
+
+/* Print,reset,Add Buttons */
+footer{
+     width: 80%;
+     padding-top: 20px;
+     padding-bottom: 20px;
+     display: flex;
+     justify-content: space-between;
+}
+
+#reset{
+     background: no-repeat  url(buttonSvg/resetBtn.svg);
+     background-position-y: center;
+     padding-left: 20px;
+     height: 40px;
+     border: 1px solid black;
+}
+
+#print{
+     background: no-repeat  url(buttonSvg/printBtn.svg);
+     background-position-y: center;
+     padding-left: 20px;
+     height: 40px;
+     border: 1px solid black;
+}
+#newProduct{
+     background: no-repeat  url(buttonSvg/addBtn.svg);
+     background-position-y: center;
+     padding-left: 20px;
+     height: 40px;
+     border: 1px solid black;
+}
+
+#reset:hover, #print:hover, #newProduct:hover{
+      background-color:silver;
+      cursor: pointer;
+}

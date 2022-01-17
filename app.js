@@ -1,6 +1,5 @@
 let table = document.querySelector("table")
 let tBody = document.querySelector("tbody")
-
 let vkupno = document.querySelector("#vkupno")
 
 vkupno.innerText = 0
@@ -9,12 +8,12 @@ let dataRow = 0
 
 let addProduct = function (e) {
      dataRow++
-
+     // Creating of table rows
      let newRow = document.createElement("tr")
      newRow.classList.add(`rowNum${dataRow}`, "rowClass")
      tBody.appendChild(newRow)
 
-
+     // Creating table data, elemenets within td and append td to tr
      let redenBroj = document.createElement("td")
      newRow.appendChild(redenBroj)
      redenBroj.append(dataRow)
@@ -75,13 +74,12 @@ let addProduct = function (e) {
 
      let iznos = document.createElement("td")
      newRow.appendChild(iznos)
-     iznos.setAttribute("id", `ìznosNum${dataRow}`)
      let iznosTxt = document.createElement("span")
      iznos.appendChild(iznosTxt)
      let toggleBtnRow = document.createElement("td")
      newRow.appendChild(toggleBtnRow)
 
-
+     // Creating toggle check and edit button in the table rows
      let toggleBtn = document.createElement("div")
      toggleBtn.classList.add("checkBtn")
      toggleBtnRow.appendChild(toggleBtn)
@@ -89,7 +87,7 @@ let addProduct = function (e) {
      toggleBtn.addEventListener("click", function () {
           let calculated = iznosTxt.toggleAttribute("disabled")
           if (calculated) {
-
+               // Hiding inputs and turning their value to span.InnerText
                opisTxt.innerText = opisInput.value
                opisInput.style.display = "none"
                opisTxt.style.display = "block"
@@ -128,6 +126,7 @@ let addProduct = function (e) {
 
                iznosTxt.style.display = "block"
 
+               // Math for the total number on the table footer
                let iznosBezDanok = (parseFloat(kolicinaTxt.innerText) * parseFloat(cenaBezDDVTxt.innerText))
                let iznosVkupno = iznosBezDanok + ((iznosBezDanok / 100) * parseFloat(danocnaStapkaTxt.innerText)) + ((iznosBezDanok / 100) * parseFloat(DDVTxt.innerText))
                iznosTxt.innerText = iznosVkupno.toFixed(2)
@@ -138,10 +137,11 @@ let addProduct = function (e) {
 
 
           } else {
-               let iznosVkupno = parseFloat(iznosTxt.innerText)
-               vkupno.innerText = ((parseFloat(vkupno.innerText) - parseFloat(iznosVkupno))).toFixed(2)
+               // Math for when click edit button on the table row
+               vkupno.innerText = ((parseFloat(vkupno.innerText) - parseFloat(iznosTxt.innerText))).toFixed(2)
                iznosTxt.style.display = "none"
 
+               // Hiding the spans in the td to inputs when clicked edit btn 
                opisInput.style.display = "block"
                opisTxt.style.display = "none"
 
@@ -165,12 +165,11 @@ let addProduct = function (e) {
 
                toggleBtn.classList.remove("editBtn")
                toggleBtn.classList.add("checkBtn")
-
           }
-
 
      })
 
+     // Creating the delete button
      let deleteBtnRow = document.createElement("td")
      newRow.appendChild(deleteBtnRow)
      let deleteBtn = document.createElement("div")
@@ -178,30 +177,25 @@ let addProduct = function (e) {
      deleteBtn.setAttribute("id", `deleteBtnNum${dataRow}`)
      deleteBtnRow.appendChild(deleteBtn)
 
-
+     // Function for delete button minusing the deleted row total from the main total
      deleteBtn.addEventListener("click", function (e) {
-          let rowNum = e.target.parentElement.parentElement.classList[0].slice(6, 20)
-
+          // delIznos is inner text of the iznos in the deleted row
           let delIznos = e.target.parentElement.parentElement.childNodes[7].innerText
           let newVkupno = (parseFloat(vkupno.innerText) - parseFloat(delIznos)).toFixed(2)
           if (!isNaN(newVkupno)) {
                vkupno.innerText = parseFloat(newVkupno).toFixed(2)
           }
-          console.log(newVkupno)
-          console.dir(rowNum)
           e.target.parentElement.parentElement.remove()
-
-
      })
 
 }
 
+// Creating and giving function to reset and print button
 let resetBtn = document.getElementById("reset")
 resetBtn.addEventListener("click", function () {
      let allRows = document.querySelectorAll(".rowClass")
      for (let i of allRows) {
           i.remove()
-
      }
      dataRow = 0
      vkupno.innerText = 0
@@ -211,13 +205,15 @@ let printBtn = document.getElementById("print")
 printBtn.addEventListener("click", function () {
      print()
 })
+
+// Add table row button
 let newProductBtn = document.getElementById("newProduct")
 newProductBtn.onclick = addProduct
 
-let infoBtn = document.createElement("button")
+// Toggle button for the companies and billing info
 let infoBtnDiv = document.querySelector(".infoBtnDiv")
+let infoBtn = document.createElement("button")
 infoBtnDiv.append(infoBtn)
-
 infoBtn.classList.add("checkBtnOnInfo")
 let pobaruvaInputs = document.querySelectorAll(".infoInputClass")
 let pobaruvaText = document.querySelector("h3")

@@ -1,3 +1,5 @@
+/* CSS RESET CODE */
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -47,11 +49,10 @@ table {
      width: 100%;
 }
 
-
+/* TABLE PROPERTIES */
 main{
      width: 80%;
 }
-
 th{
      background-color: #FEC001;
      height: 40px;
@@ -61,30 +62,30 @@ th{
 th:nth-last-child(2),th:nth-last-child(1){
      border: none;
 }
-
 td{
      text-align: center;
+     vertical-align: middle;
      border-right: 1px solid black;
      padding: 3px 2px 3px 2px ;
-
+     height: 25px;
+     
 }
 tbody >tr > td:nth-last-child(2),tbody >tr > td:nth-last-child(1){
      border: none;
 }
 tr:nth-child(2n){
-     background-color: #6e6b60;
+     background-color: #b6b6b6;
 }
 tfoot > tr > td{
      border-top: 1px solid black;
      border-right: none;
-}
-tfoot>tr>td{
+     font-weight: 700;
      padding-top:10px;
-     padding-bottom: 10px;
      background-color: #FEC001;
+     text-align: center;
 }
 input{
-     border: none;
+    border: none; 
 }
 .tableInput{
      width:90%;
@@ -92,15 +93,13 @@ input{
      border: 1px solid black;
 }
 
-
+/* Table heads width  */
 #redenBroj, #eMera, #kolicina{
      width: 5%;
 }
-
 #cenaBezDDV, #danStapka, #DDV{
      width: 15%;
 }
-
 #opis{
      width: 25%;
 }
@@ -111,35 +110,16 @@ input{
      width: 5%;
 }
 
-
-
-.hide{
-     display: none;
-}
-.show{
-     display: block;
-}
-
-#info{
-     display: flex;
-     flex-direction: row;
-     justify-content: space-around;
-}
-
-/* Buttons */
-
+/* BUTTONS */
 .checkBtn{
      background: center / contain no-repeat url(buttonSvg/checkBtn.svg);
      height: 15px;
      color: black;
-     
 }
-
 .editBtn{
      background: center / contain no-repeat url(buttonSvg/editBtn.svg);
      height: 15px;
 }
-
 .deleteBtn{
      background: center / contain no-repeat url(buttonSvg/deleteBtn.svg);
      height: 15px;
@@ -148,7 +128,6 @@ input{
      background: center / contain no-repeat url(buttonSvg/editBtn.svg);
      height: 30px;
      width: 30px;
-     display: block;
      border: none;
      padding: 0;
 }
@@ -156,7 +135,6 @@ input{
      background: center / contain no-repeat url(buttonSvg/checkBtn.svg);
      height: 30px;
      width: 30px;
-     display: block;
      border: none;
      padding: 0;
 }
@@ -167,7 +145,7 @@ height: 35px;
 transition: 0.2s;
 }
 
-/* Header  */
+/* HEADER */
 
 header{
      width: 80%;
@@ -175,12 +153,10 @@ header{
 
 }
 #pobaruvaDiv{
-    display: flex;
-flex-direction: column;
-align-items: flex-start;
-width: 50%;
+     margin-top: 10px;
+     margin-bottom: 10px;
+     width: 50%;
 }
-
 .pobaruvaInfoInputClass{
      width: 100%;
      padding: 5px 0 5px 0;
@@ -197,23 +173,12 @@ width: 50%;
 .pobaruvaInfoInputClass:disabled{
      background-color: #48422D;
 }
-
-
 #telEmailDiv{
      display: flex;
      flex-direction: row;
      justify-content: space-between;
      width: 100%;
      margin-left: 5px;
-}
-
-#pobaruvaInputEmail{
-     width: 63%;
-     font-size: 0.6em
-}
-#pobaruvaInputPhone{
-width: 35%;
-font-size: 0.6em
 }
 #pobaruvaInputAddress{
      margin-left: 5px;
@@ -224,9 +189,16 @@ font-size: 0.6em
      font-size: 1.2em;
      font-weight: 700;
 }
+#pobaruvaInputEmail{
+     width: 63%;
+     font-size: 0.6em
+}
+#pobaruvaInputPhone{
+width: 35%;
+font-size: 0.6em
+}
 
-/* Client INFO  */
-
+/* CLIENT INFO ELEMENTS */
 #klientDiv{
      display: flex;
      flex-direction: row;
@@ -237,7 +209,7 @@ font-size: 0.6em
 #klientInfo{
      display: flex;
      flex-direction: column;
-     align-items: flex-start;
+     align-items: stretch;
 }
 h3{
      font-weight: 400;
@@ -247,6 +219,7 @@ h3{
      background-color: silver;
      margin: 5px 0px 5px 0px;
      color: black;
+     font-family: 'Roboto Mono', monospace;
 }
 .klientInfoInputClass:disabled{
      background-color: white;
@@ -270,16 +243,11 @@ h3{
      height: 40px;
      width: 40px;
 }
-
-#brNaFaktura{
-     text-align: end;
-}
-#kraenRok{
+#brNaFaktura, #kraenRok{
      text-align: end;
 }
 
-
-/* Print,reset,Add Buttons */
+/* PRINT, RESET, ADD BUTTONS */
 footer{
      width: 80%;
      padding-top: 20px;

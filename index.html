@@ -1,105 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Фактурирај</title>
+    </head>
 
-     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;400;500;700&display=swap"
-          rel="stylesheet">
-     <link rel="stylesheet" href="style.css">
-     <title>Фактурирај</title>
-</head>
-
-<body>
-     <header>
-          <div id="pobaruvaDiv">
-               <input type="text" name="companyname" id="pobaruvaInputName"
-                    class="pobaruvaInfoInputClass infoInputClass" placeholder="Име на побарувачот">
-               <input type="text" name="companyAddres" id="pobaruvaInputAddress"
-                    class="pobaruvaInfoInputClass infoInputClass" placeholder="Адреса">
-               <div id="telEmailDiv">
-                    <input type="text" name="companyPhone" id="pobaruvaInputPhone"
-                         class="pobaruvaInfoInputClass infoInputClass" placeholder="Тел. број">
-                    <input type="text" name="companyEmail" id="pobaruvaInputEmail"
-                         class="pobaruvaInfoInputClass infoInputClass" placeholder="Е-маил">
-               </div>
-          </div>
-     </header>
-     <main>
-          <div id="klientDiv">
-               <div id="klientInfo">
-
-
-
-
+    <body>
+        <header>
+            <div id="pobaruvaDiv">
+                <input
+                    type="text"
+                    name="companyName"
+                    id="pobaruvaInputName"
+                    class="pobaruvaInfoInputClass infoInputClass"
+                    placeholder="Име на побарувачот"
+                    required
+                />
+                <input
+                    type="text"
+                    name="companyAddress"
+                    id="pobaruvaInputAddress"
+                    class="pobaruvaInfoInputClass infoInputClass"
+                    placeholder="Адреса"
+                    required
+                />
+                <div id="telEmailDiv">
+                    <input
+                        type="tel"
+                        name="companyPhone"
+                        id="pobaruvaInputPhone"
+                        class="pobaruvaInfoInputClass infoInputClass"
+                        placeholder="Тел. број"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                        required
+                    />
+                    <input
+                        type="email"
+                        name="companyEmail"
+                        id="pobaruvaInputEmail"
+                        class="pobaruvaInfoInputClass infoInputClass"
+                        placeholder="Е-маил адреса"
+                        required
+                    />
+                </div>
+            </div>
+        </header>
+        <main>
+            <div id="klientDiv">
+                <div id="klientInfo">
                     <h3>Клиент</h3>
-                    <input type="text" name="companyname" id="klientInputName"
-                         class="klientInfoInputClass infoInputClass" placeholder="Име на клиентот">
-                    <input type="text" name="companyAddress" id="klientInputAddress"
-                         class="klientInfoInputClass infoInputClass" placeholder="Адреса">
-                    <input type="text" name="companyPhone" id="klientInputPhone"
-                         class="klientInfoInputClass infoInputClass" placeholder="Тел. број">
-                    <input type="text" name="companyEmail" id="klienInputEmail"
-                         class="klientInfoInputClass infoInputClass" placeholder="Е-маил">
-
-               </div>
-               <div id="klientPaymentInfo">
-                    <h3>Број на факутра</h3>
-                    <input type="text" name="brNaFaktura" id="brNaFaktura" class="infoInputClass klientInfoInputClass"
-                         placeholder="Број на фактура">
+                    <input
+                        type="text"
+                        name="companyname"
+                        id="klientInputName"
+                        class="klientInfoInputClass infoInputClass"
+                        placeholder="Име на клиентот"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="companyAddress"
+                        id="klientInputAddress"
+                        class="klientInfoInputClass infoInputClass"
+                        placeholder="Адреса"
+                        required
+                    />
+                    <input
+                        type="tel"
+                        name="companyPhone"
+                        id="klientInputPhone"
+                        class="klientInfoInputClass infoInputClass"
+                        placeholder="Тел. број"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                        required
+                    />
+                    <input
+                        type="email"
+                        name="companyEmail"
+                        id="klienInputEmail"
+                        class="klientInfoInputClass infoInputClass"
+                        placeholder="Е-маил"
+                        required
+                    />
+                </div>
+                <div id="klientPaymentInfo">
+                    <h3>Број на фактура</h3>
+                    <input
+                        type="number"
+                        name="brNaFaktura"
+                        id="brNaFaktura"
+                        class="infoInputClass klientInfoInputClass"
+                        placeholder="Број на фактура"
+                        required
+                    />
                     <h3>Краен рок за наплата</h3>
-                    <input type="date" name="kraenRok" id="kraenRok" class="infoInputClass klientInfoInputClass"
-                         id="billInfoInput">
-                    <div class="infoBtnDiv">
-                    </div>
-               </div>
-
-
-          </div>
-          <table>
-               <thead>
+                    <input
+                        type="date"
+                        name="kraenRok"
+                        id="kraenRok"
+                        class="infoInputClass klientInfoInputClass"
+                        id="billInfoInput"
+                    />
+                    <div class="infoBtnDiv"></div>
+                </div>
+            </div>
+            <table>
+                <thead>
                     <tr>
-                         <th class="redenBroj" id="redenBroj">Реден број</th>
-                         <th class="opis" id="opis">Опис</th>
-                         <th class="eMera" id="eMera">Единечна <br>Мера</th>
-                         <th class="kolicina" id="kolicina">Количина</th>
-                         <th class="cenaBezDDV" id="cenaBezDDV">Цена без <br> ДДВ</th>
-                         <th class="danStapka" id="danStapka">Даночна <br> стапка</th>
-                         <th class="ddv" id="ddv">ДДВ</th>
-                         <th class="iznos" id="iznos">Износ</th>
-                         <th class="btntoggle" id="btntoggle"></th>
-                         <th class="deleteBtnRow" id="deleteBtn"></th>
+                        <th class="redenBroj" id="redenBroj">Реден број</th>
+                        <th class="opis" id="opis">Опис</th>
+                        <th class="eMera" id="eMera">Единечна <br />Мера</th>
+                        <th class="kolicina" id="kolicina">Количина</th>
+                        <th class="cenaBezDDV" id="cenaBezDDV">
+                            Цена без <br />
+                            ДДВ
+                        </th>
+                        <th class="danStapka" id="danStapka">
+                            Даночна <br />
+                            стапка
+                        </th>
+                        <th class="ddv" id="ddv">ДДВ</th>
+                        <th class="iznos" id="iznos">Износ</th>
+                        <th class="btntoggle" id="btntoggle"></th>
+                        <th class="deleteBtnRow" id="deleteBtn"></th>
                     </tr>
-               </thead>
-               <tbody>
-
-               </tbody>
-               <tfoot>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <td colspan="6"></td>
                     <td>Вкупно:</td>
-                    <td id="vkupno"></td>
-                    <td></td>
-                    <td></td>
-               </tfoot>
-          </table>
+                    <td id="total"></td>
+                    <td colspan="2"></td>
+                </tfoot>
+            </table>
+        </main>
+        <footer>
+            <button id="reset">Ресет</button>
+            <button id="print">Испринтај ја фактурата</button>
+            <button id="newProduct">Додади производ</button>
+        </footer>
 
-
-     </main>
-     <footer>
-          <button id="reset">Ресет</button>
-          <button id="print">Испринтај ја фактурата</button>
-          <button id="newProduct">Додади производ</button>
-
-     </footer>
-
-     <script src="app.js"></script>
-</body>
-
+        <script src="app.js"></script>
+    </body>
 </html>

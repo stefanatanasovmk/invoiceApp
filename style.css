@@ -158,6 +158,7 @@ tbody > tr > td:nth-last-child(1) {
 tr:nth-child(2n) {
     background-color: #b6b6b6;
 }
+
 tfoot > tr > td {
     border-top: 1px solid black;
     border-right: none;
@@ -166,38 +167,41 @@ tfoot > tr > td {
     background-color: #fec001;
     text-align: center;
 }
+
 input {
-    border: none;
+    border: 1px solid #b6b6b6;
     padding: 6px 12px;
+    line-height: 1.5;
     margin-bottom: 6px;
+    color: #2e2e2e;
+    font-size: 1rem;
+}
+
+input::placeholder {
+    color: #b6b6b6;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .tableDataInput {
-    width: 90%;
     padding: 5px;
-    border: 1px solid gray;
+    margin: 5px;
+}
+
+.tableDataInput.desc {
+    width: 90%;
+}
+
+.tableDataInput.taxRate {
+    margin: 0 auto;
 }
 
 /* Table heads width  */
-#redenBroj,
-#eMera,
-#kolicina {
+#redenBroj {
     width: 5%;
-}
-#cenaBezDDV,
-#danStapka,
-#DDV {
-    width: 15%;
-}
-#opis {
-    width: 25%;
-}
-#iznos {
-    width: 10%;
-}
-#btntoggle,
-#deleteBtn {
-    width: 3%;
 }
 
 /* BUTTONS */
@@ -239,6 +243,7 @@ input {
     border: none;
     padding: 0;
 }
+
 .editBtnOnInfo:hover,
 .checkBtnOnInfo:hover {
     cursor: pointer;
@@ -251,86 +256,75 @@ input {
 
 header {
     width: 80%;
-    background-color: #48422d;
+    background-color: #6c99bb;
+    margin: 10px 0;
 }
-#pobaruvaDiv {
-    padding: 10px;
-    width: 50%;
+
+#companyDetails {
+    padding: 18px 12px;
 }
-.pobaruvaInfoInputClass {
-    width: 100%;
-    font-family: "Roboto Mono", monospace;
-    color: white;
-}
-.pobaruvaInfoInputClass:enabled {
-    background-color: #6e6b60;
-}
-.pobaruvaInfoInputClass::placeholder {
-    color: rgb(255, 255, 255);
-}
-.pobaruvaInfoInputClass:disabled {
-    background-color: #48422d;
-}
-#telEmailDiv {
+
+.companyMainInfo {
+    max-width: 45%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+    flex-direction: column;
 }
-#pobaruvaInputAddress {
-    font-size: 0.7em;
+
+.companyInfo {
+    max-width: 60%;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
 }
-#pobaruvaInputName {
-    font-size: 1.2em;
-    font-weight: 700;
+
+.inputBox {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: baseline;
 }
-#pobaruvaInputEmail {
-    width: 63%;
-    font-size: 0.6em;
+
+.primaryTxt {
+    flex-grow: 1;
 }
-#pobaruvaInputPhone {
-    width: 35%;
-    font-size: 0.6em;
-    margin-right: 6px;
+
+.secondaryTxt {
+    flex-grow: 1;
 }
 
 /* CLIENT INFO ELEMENTS */
-#klientDiv {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 30px 5px 30px 5px;
+#clientContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 15px 0 20px 0;
 }
 
-#klientInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-h3 {
-    font-weight: 400;
-    font-size: 0.7em;
-}
-.klientInfoInputClass {
-    background-color: silver;
-    color: black;
-    font-family: "Roboto Mono", monospace;
-}
-.klientInfoInputClass:disabled {
-    background-color: white;
+.clientDataHeader {
+    margin: 8px 0;
 }
 
-#klientInputName {
-    font-weight: 700;
-    font-size: 1.3em;
-}
-
-#klientPaymentInfo {
+.clientCompanyData {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
+    max-width: 60%;
 }
+
+#invoicePaymentInfo {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
+.invoiceDataContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: baseline;
+}
+
+#invoiceNumber {
+    min-width: 200px;
+}
+
 .infoBtnDiv {
     display: flex;
     justify-content: center;
@@ -346,29 +340,35 @@ h3 {
 /* PRINT, RESET, ADD BUTTONS */
 footer {
     width: 80%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 4rem 0;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
-#reset {
+.btnPrimary {
+    padding: 6px 4px;
+    border: none;
+    background-position-y: center;
+    background-color: transparent;
+}
+
+.btnIcon {
+    display: block;
+    height: 24px;
+    width: 24px;
+}
+
+.resetIcon {
     background: no-repeat url(buttonSvg/resetBtn.svg);
-    background-position-y: center;
-    padding-left: 20px;
-    height: 40px;
-    border: 1px solid black;
 }
 
-#print {
-    background: no-repeat url(buttonSvg/printBtn.svg);
-    background-position-y: center;
-    padding-left: 20px;
-    height: 40px;
-    border: 1px solid black;
-}
-#newProduct {
+.newProductIcon {
     background: no-repeat url(buttonSvg/addBtn.svg);
+}
+
+#btnPrint {
+    background: no-repeat url(buttonSvg/printBtn.svg);
     background-position-y: center;
     padding-left: 20px;
     height: 40px;
@@ -378,8 +378,31 @@ footer {
 #reset:hover,
 #print:hover,
 #newProduct:hover {
-    background-color: silver;
+    background-color: #b6b6b6;
     cursor: pointer;
+}
+
+.legalInfo {
+    border-top: 1px solid black;
+    padding: 15px 0;
+}
+
+.legalSignatures {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.legalSignaturesItem {
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding-bottom: 40px;
+    width: 25%;
+}
+
+.actionsBox {
+    text-align: center;
+    margin-top: 20px;
 }
 
 .isCalculated .tableDataInput {
@@ -396,4 +419,102 @@ footer {
 
 .notCalculated .tableDataTxt {
     display: none;
+}
+/* Print css */
+
+@media print {
+    .hidden-print {
+        display: none !important;
+    }
+
+    input {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        font-size: 14pt;
+    }
+
+    #companyDetails {
+        padding: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid black;
+    }
+
+    .companyMainInfo {
+        max-width: 80%;
+    }
+
+    #companyName {
+        font-size: 16pt;
+    }
+
+    #clientCompanyName {
+        font-size: 15pt;
+    }
+
+    .clientCompanyData {
+        max-width: 100%;
+    }
+
+    .redenBroj,
+    .eMera,
+    .kolicina {
+        width: 5%;
+    }
+
+    .opis {
+        max-width: 200px;
+    }
+
+    label {
+        display: block;
+    }
+
+    @page {
+        size: auto;
+        margin: 0;
+    }
+
+    a[href]:after {
+        content: none !important;
+    }
+
+    #clientContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .invoiceDataContainer {
+        margin-bottom: 5px;
+    }
+
+    /* table */
+    thead {
+        border: 1px solid black;
+    }
+
+    td {
+        border: 1px solid black;
+    }
+
+    tfoot td {
+        border: none;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    table,
+    tr {
+        page-break-inside: avoid;
+    }
+
+    td {
+        word-break: break-word;
+    }
+
+    table {
+        page-break-before: avoid;
+        white-space: nowrap;
+    }
 }

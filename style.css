@@ -158,7 +158,6 @@ tbody > tr > td:nth-last-child(1) {
 tr:nth-child(2n) {
     background-color: #b6b6b6;
 }
-
 tfoot > tr > td {
     border-top: 1px solid black;
     border-right: none;
@@ -243,7 +242,6 @@ p {
     border: none;
     padding: 0;
 }
-
 .editBtnOnInfo:hover,
 .checkBtnOnInfo:hover {
     cursor: pointer;

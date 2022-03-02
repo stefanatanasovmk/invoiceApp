@@ -1,14 +1,17 @@
-let table = document.querySelector("table");
-let tBody = document.querySelector("tbody");
-let total = document.querySelector("#total");
+const table = document.querySelector("table");
+const tBody = document.querySelector("tbody");
+const total = document.querySelector("#total");
 
 total.innerText = 0;
 let dataRow = 0;
 
 const createTableData = (rowRef, rowNumber, type, name) => {
-    let tableData = document.createElement("td");
+    // Add td
+    const tableData = document.createElement("td");
     rowRef.appendChild(tableData);
-    let tableDataInput = document.createElement("input");
+
+    // Append input element
+    const tableDataInput = document.createElement("input");
     tableDataInput.classList.add("tableDataInput", name);
     tableDataInput.setAttribute("type", type);
     if (type === "number") {
@@ -17,7 +20,9 @@ const createTableData = (rowRef, rowNumber, type, name) => {
     }
     tableDataInput.setAttribute("name", name);
     tableData.appendChild(tableDataInput);
-    let tableDataTxt = document.createElement("span");
+
+    // Append span
+    const tableDataTxt = document.createElement("span");
     if (type === "number") {
         tableDataTxt.innerText = 0;
     }
@@ -33,8 +38,8 @@ const createTableData = (rowRef, rowNumber, type, name) => {
 const createTextField = (rowRef, rowNumber, name) => {
     let tableData = document.createElement("td");
     rowRef.appendChild(tableData);
-    let tableDataTxt = document.createElement("span");
 
+    let tableDataTxt = document.createElement("span");
     tableDataTxt.classList.add("tableDataTxt");
     tableDataTxt.id = `${name}-row-${rowNumber}`;
     tableData.appendChild(tableDataTxt);
@@ -82,19 +87,20 @@ const createTaxListData = (rowRef, rowNumber) => {
 let addProduct = function (e) {
     dataRow++;
     // Creating of table rows
-    let newRow = document.createElement("tr");
+    const newRow = document.createElement("tr");
     newRow.classList.add(`rowNum${dataRow}`, "rowClass", "notCalculated");
     tBody.appendChild(newRow);
 
     // Creating table data, elements within td and append td to tr
     let rowNumber = document.createElement("td");
     newRow.appendChild(rowNumber);
-    var rows = tBody.getElementsByTagName("tr");
+    const rows = tBody.getElementsByTagName("tr");
     rowNumber.append(rows.length);
     rowNumber.classList.add("rowNumber");
 
     createTableData(newRow, dataRow, "text", "desc");
-    createTableData(newRow, dataRow, "number", "unitMeasure");
+    createTableData(newRow, dataRow, "text", "unitMeasure");
+    createTableData(newRow, dataRow, "number", "unitPrice");
     createTableData(newRow, dataRow, "number", "quantity");
     createTextField(newRow, dataRow, "priceWithoutTax");
     createTaxListData(newRow, dataRow);
@@ -124,9 +130,7 @@ let addProduct = function (e) {
             amountTxt.style.display = "block";
 
             // Element objects
-            const unitMeasure = document.getElementById(
-                `unitMeasure-${this.id}`
-            );
+            const unitPrice = document.getElementById(`unitPrice-${this.id}`);
             const quantity = document.getElementById(`quantity-${this.id}`);
             const priceWithoutTax = document.getElementById(
                 `priceWithoutTax-${this.id}`
@@ -135,17 +139,17 @@ let addProduct = function (e) {
             const ddv = document.getElementById(`ddv-${this.id}`);
 
             // Element value
-            const unitMeasureValue = unitMeasure.innerText;
+            const unitPriceValue = unitPrice.innerText;
             const quantityValue = quantity.innerText;
             const priceWithoutTaxValue = priceWithoutTax.innerText;
             const taxRateValue = taxRate.value;
             const ddvValue = ddv.innerText;
 
             let totalWithoutTaxes =
-                parseFloat(unitMeasureValue) * parseFloat(quantityValue);
+                parseFloat(unitPriceValue) * parseFloat(quantityValue);
             priceWithoutTax.innerText = totalWithoutTaxes.toFixed(2);
 
-            // price with ddv (unitMeasureValue * quantityValue) * taxRate [1,05 or 1,18 or 1]
+            // price with ddv (unitPriceValue * quantityValue) * taxRate [1,05 or 1,18 or 1]
             const totalAmount = totalWithoutTaxes * taxRateValue;
 
             // ddv = price with ddv - price without ddv

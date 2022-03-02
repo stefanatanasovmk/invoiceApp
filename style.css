@@ -136,10 +136,11 @@ main {
 }
 th {
     background-color: #fec001;
-    height: 40px;
     border-right: 1px solid black;
     padding: 5px;
+    vertical-align: middle;
 }
+
 th:nth-last-child(2),
 th:nth-last-child(1) {
     border: none;
@@ -413,14 +414,31 @@ footer {
 
 .isCalculated .tableDataTxt {
     display: block;
+    padding: 5px 0;
 }
 
 .notCalculated .tableDataTxt {
     display: none;
 }
-/* Print css */
 
+tbody td:nth-child(2) {
+    width: 20%;
+    word-wrap: break-word;
+}
+
+/* Print css */
 @media print {
+    @page {
+        size: auto;
+        margin: 0;
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+
     .hidden-print {
         display: none !important;
     }
@@ -429,7 +447,7 @@ footer {
         border: none;
         background-color: transparent;
         padding: 0;
-        font-size: 14pt;
+        font-size: 10pt;
     }
 
     #companyDetails {
@@ -443,34 +461,19 @@ footer {
     }
 
     #companyName {
-        font-size: 16pt;
+        font-size: 14pt;
     }
 
     #clientCompanyName {
-        font-size: 15pt;
+        font-size: 13pt;
     }
 
     .clientCompanyData {
         max-width: 100%;
     }
 
-    .redenBroj,
-    .eMera,
-    .kolicina {
-        width: 5%;
-    }
-
-    .opis {
-        max-width: 200px;
-    }
-
     label {
         display: block;
-    }
-
-    @page {
-        size: auto;
-        margin: 0;
     }
 
     a[href]:after {
@@ -486,33 +489,37 @@ footer {
     }
 
     /* table */
-    thead {
-        border: 1px solid black;
+    table {
+        table-layout: fixed; /* makes the text-overflow function with percentage widths on the td or th */
+        width: 297mm - 2 * 10mm;
+        border-collapse: collapse;
     }
 
+    td,
+    th {
+        width: 10%;
+        padding: 1mm 1mm 1mm 1mm;
+        border: 1px solid black;
+        /* overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; */
+        font-size: 10pt;
+        line-height: 1.15;
+    }
+
+    th:nth-child(2) {
+        width: 20%;
+        word-wrap: break-word;
+        overflow: initial;
+        text-overflow: initial;
+    }
+
+    thead,
     td {
         border: 1px solid black;
     }
 
     tfoot td {
         border: none;
-    }
-
-    table {
-        border-collapse: collapse;
-    }
-
-    table,
-    tr {
-        page-break-inside: avoid;
-    }
-
-    td {
-        word-break: break-word;
-    }
-
-    table {
-        page-break-before: avoid;
-        white-space: nowrap;
     }
 }
